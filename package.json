@@ -1,7 +1,7 @@
 {
   "name": "ecowebmetrics",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "This NPM package will help you adjust your website to be more eco-friendly by calculating the carbon footprint its website and give you tips on how to improve it.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -11,8 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/Meanzar/EcoWebMetrics.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "green",
+    "web",
+    "metrics",
+    "carbon",
+    "carbon footprint"
+  ],
+  "author": "EcoWebMetrics Team",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Meanzar/EcoWebMetrics/issues"
