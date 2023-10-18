@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const sizeOf = require('image-size');
+const fs = require("fs");
+const path = require("path");
+const sizeOf = require("image-size");
 
 const MAX_IMAGE_SIZE = 1024 * 1024; // 1 Mo (en octets)
 const isImageSizeTooLarge = (filePath) => {
@@ -20,7 +20,7 @@ const isImageSizeTooLarge = (filePath) => {
 
         // Calcul carbon emission
 
-        const kwhEnergyPerKb = 0.2 / 1024; // Consommation d'énergie par Ko chargé (en kWh)
+        const kwhEnergyPerKb = 0.2 / 1024; // Consommation d"énergie par Ko chargé (en kWh)
         const kgCo2PerKwh = 0.5; // Emissions de CO2 par kWh (en kg)
 
         const totalEnergyConsumed = fileSizeInKilobytes * kwhEnergyPerKb; // Energy consumed in kWh
@@ -29,7 +29,7 @@ const isImageSizeTooLarge = (filePath) => {
 
         return imageSize > MAX_IMAGE_SIZE;
     } catch (error) {
-        console.error('Erreur lors de la lecture des dimensions de l\'image :', error);
+        console.error("Erreur lors de la lecture des dimensions de l\"image :", error);
         return false;
     }
 };
@@ -38,8 +38,8 @@ const isImageSizeTooLarge = (filePath) => {
 
 
 
-const directoryPath = 'assets';
-const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
+const directoryPath = "assets";
+const imageExtensions = [".jpg", ".jpeg", ".png", ".gif"];
 
 // Filter images files
 const isImageFile = (fileName) => {
@@ -50,20 +50,20 @@ const isImageFile = (fileName) => {
 // Browse directory
 fs.readdir(directoryPath, (err, files) => {
     if (err) {
-        console.error('Erreur lors de la lecture du répertoire :', err);
+        console.error("Erreur lors de la lecture du répertoire :", err);
         return;
     }
 
-    // Filtrer les fichiers d'images
+    // Filtrer les fichiers d"images
     const imageFiles = files.filter(isImageFile);
 
     // For each image file check size
     imageFiles.forEach((file) => {
-        console.log('\nImage : ', file);
+        console.log("\nImage : ", file);
         if (isImageSizeTooLarge("assets/" + file)) {
-            console.log('La taille de l\'image est trop grande.');
+            console.log("La taille de l\"image est trop grande.");
         } else {
-            console.log('La taille de l\'image est acceptable.');
+            console.log("La taille de l\"image est acceptable.");
         }
     });
 });
