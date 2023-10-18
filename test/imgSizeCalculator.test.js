@@ -1,14 +1,14 @@
-const ImageProcessor = require('../src/imgSizeCalculator');
-const filePath = './assets/logo.jpg'; // testing img
+const ImageProcessor = require("../src/imgSizeCalculator");
+const filePath = "./assets/logo.jpg"; // testing img
 
 
-test('Calcul image size returns the correct size', () => {
+test("Calcul image size returns the correct size", () => {
     const imageProcessor = new ImageProcessor();
     const expectSize = 792 * 792;
     expect(imageProcessor.calculImgSize(filePath)).toBe(expectSize);
 });
 
-test('Calcul image weight returns the correct weight', () => {
+test("Calcul image weight returns the correct weight", () => {
     const imageProcessor = new ImageProcessor();
     const expectWeight = 44.01;
 
