@@ -6,8 +6,8 @@ module.exports = {
     },
 
     rules: {
-        indent: ['warn', 4],
-        quotes: ['warn', 'double'],
-        semi: ['warn', 'never'],
+        indent: ["warn", 4],
+        quotes: ["warn", "double"],
+        semi: ["warn", "always"],
     },
 };

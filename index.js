@@ -1,5 +1,5 @@
-const ImageProcessor = require('./imgSizeCalculator');
-const CarbonEmissions = require('./carbonEmissionsCalculator');
+const ImageProcessor = require("./src/imgSizeCalculator");
+const CarbonEmissions = require("./src/carbonEmissionsCalculator");
 
 // Imgae size calculator
 const directoryPath = "assets";
