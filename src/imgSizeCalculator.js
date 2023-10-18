@@ -1,9 +1,8 @@
 const fs = require('fs');
+const path = require('path');
 const sizeOf = require('image-size');
 
-
 const MAX_IMAGE_SIZE = 1024 * 1024; // 1 Mo (en octets)
-
 const isImageSizeTooLarge = (filePath) => {
     const stats = fs.statSync(filePath);
 
@@ -35,12 +34,36 @@ const isImageSizeTooLarge = (filePath) => {
     }
 };
 
-// Exemple d'utilisation
 
-const filePath = 'assets/img.jpg';
-if (isImageSizeTooLarge(filePath)) {
-    console.log('La taille de l\'image est trop grande.');
-    // console.log(dimensions.width, dimensions.height)
-} else {
-    console.log('La taille de l\'image est acceptable.');
-}
+
+
+
+const directoryPath = 'assets';
+const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
+
+// Filter images files
+const isImageFile = (fileName) => {
+    const extension = path.extname(fileName).toLowerCase();
+    return imageExtensions.includes(extension);
+};
+
+// Browse directory
+fs.readdir(directoryPath, (err, files) => {
+    if (err) {
+        console.error('Erreur lors de la lecture du répertoire :', err);
+        return;
+    }
+
+    // Filtrer les fichiers d'images
+    const imageFiles = files.filter(isImageFile);
+
+    // For each image file check size
+    imageFiles.forEach((file) => {
+        console.log('\nImage : ', file);
+        if (isImageSizeTooLarge("assets/" + file)) {
+            console.log('La taille de l\'image est trop grande.');
+        } else {
+            console.log('La taille de l\'image est acceptable.');
+        }
+    });
+});
