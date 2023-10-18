@@ -22,8 +22,8 @@ jobs:
 
     - name: Bump version
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "romain.danizel.pro@gmail.com"
+        git config --local user.name "Meanzar"
         npm version patch -m "Bump version to %s [skip ci]"
 
     - name: Push changes to staging
