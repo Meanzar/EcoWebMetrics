@@ -99,8 +99,6 @@ class ImageProcessor {
         this.maxSize = maxSize;
     }
 
-
-
     calculImgSize(filePath) {
         const dimensions = sizeOf(filePath);
         const imageSize = dimensions.width * dimensions.height;
@@ -113,7 +111,7 @@ class ImageProcessor {
         const stats = fs.statSync(filePath);
 
         const fileSizeInBytes = stats.size;
-        const fileSizeInKb = fileSizeInBytes / 1024;
+        const fileSizeInKb = Number((fileSizeInBytes / 1024).toFixed(2));
         console.log("Le poids de l'image est de " + fileSizeInKb + " Ko.");
 
         return fileSizeInKb;
@@ -124,7 +122,7 @@ class ImageProcessor {
         const kgCo2PerKwh = 0.5; // Emissions de CO2 par kWh (en kg)
 
         const totalEnergyConsumed = imgWeight * kwhEnergyPerKb; // Energy consumed in kWh
-        const totalCarbonEmission = totalEnergyConsumed * kgCo2PerKwh; // Carbon emission in kg
+        const totalCarbonEmission = Number((totalEnergyConsumed * kgCo2PerKwh).toFixed(3)); // Carbon emission in kg
         console.log("L'image dépense " + totalCarbonEmission + " kg de CO2.");
 
         return totalCarbonEmission;
