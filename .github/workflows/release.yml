@@ -27,3 +27,5 @@ jobs:
         npm version patch -m "Bump version to %s [skip ci]"
         git push
         git push --tags
+      env:
+        GITHUB_TOKEN: ${{ secrets.MY_PERSONAL_TOKEN }}
