@@ -1,4 +1,4 @@
-name: Continious Integration
+name: Continious Integration Main
 
 on:
   push:
@@ -7,8 +7,11 @@ on:
 
 jobs:
   ci:
-      - name: "Publish to NPM"
-      uses: JS-DevTools/npm-publish@v2
-      with:
-        token: ${{ secrets.NPM_TOKEN }}
+    name: Continious Integration Main
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: "Publish to NPM"
+        uses: JS-DevTools/npm-publish@v2
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
