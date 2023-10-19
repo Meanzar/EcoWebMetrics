@@ -154,9 +154,9 @@ class ImageProcessor {
 
 }
 
-const directoryPath = "assets";
-const imageProcessor = new ImageProcessor();
-imageProcessor.browseDirectory(directoryPath);
+// const directoryPath = "assets";
+// const imageProcessor = new ImageProcessor();
+// imageProcessor.browseDirectory(directoryPath);
 module.exports = ImageProcessor;
 
 

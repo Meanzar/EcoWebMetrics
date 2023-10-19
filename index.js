@@ -1,7 +1,12 @@
 const ImageProcessor = require("./src/imgSizeCalculator");
 const CarbonEmissions = require("./src/carbonEmissionsCalculator");
 
+// Imgae size calculator
+const directoryPath = "assets";
+const maxSize = 1024; // 1 Mo (en octets)
 
+const imageProcessor = new ImageProcessor(maxSize);
+imageProcessor.browseDirectory(directoryPath);
 
 
 
