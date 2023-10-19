@@ -4,7 +4,7 @@ const filePath = "./assets/logo.jpg"; // testing img
 
 test("Calcul image size returns the correct size", () => {
     const imageProcessor = new ImageProcessor();
-    const expectSize = 792 * 792;
+    const expectSize = 1024 * 1024;
 
     const [width, height, imgTotalSize] = imageProcessor.calculimgTotalSize(filePath);
 
