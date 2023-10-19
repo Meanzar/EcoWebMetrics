@@ -1,5 +1,7 @@
 # EcoWebMetrics
 
+![logo-size](https://github.com/Meanzar/EcoWebMetrics/assets/90480267/a9d47962-ac77-4cbd-93dd-84c0090dc3b1)
+
 EcoWebMetrics is a JavaScript library that provides developers with feedback on their code, helping them write more sustainable and environmentally friendly code. It leverages data collected from unit tests to generate a score and provide insights into the ecological impact of the code.
 
 ## Table of Contents
@@ -7,9 +9,10 @@ EcoWebMetrics is a JavaScript library that provides developers with feedback on 
 1. [Features](#features)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Commands](#commands)
-5. [Contributing](#contributing)
-6. [License](#license)
+5. [Interface](#interface)
+6. [Roadmap](#roadmap)
+7. [Contributing](#contributing)
+8. [License](#license)
 
 ## Features
 
@@ -56,6 +59,17 @@ To get started with EcoWebMetrics, follow these steps:
 
    After running the command, you'll receive feedback and suggestions for improving the environmental impact of your code.
 
+## Interface
+
+This local interface will help you see the things to imrpove in your code
+![interface](https://github.com/Meanzar/EcoWebMetrics/assets/90480267/6933b0eb-d8d7-4e2e-978a-6c42d2cdc938)
+
+In your console, you will get the result of the carbon emission for you site
+
+## Roadmap
+This is the link to the roadmap with our goals
+
+https://www.notion.so/8cff685b3acf4161a28d9ef852237f16?v=e9e1c14837fc44c98bc5054bfd459e70&pvs=4
 
 ## Contributing
 
