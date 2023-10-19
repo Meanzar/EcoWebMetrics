@@ -3,8 +3,8 @@ const path = require("path");
 const sizeOf = require("image-size");
 
 class ImageProcessor {
-    constructor(maxSize) {
-        this.maxSize = maxSize;
+    constructor() {
+
         this.clearJsonData("data.json");
     }
 
@@ -54,13 +54,14 @@ class ImageProcessor {
     isImgLarge(filePath) {
         try {
             const [imgTotalSize] = this.calculimgTotalSize(filePath);
-            if (imgTotalSize > this.maxSize) {
+            const maxSize = 1024;
+            if (imgTotalSize > maxSize) {
                 console.log("La taille de l'image est trop grande.");
             } else {
                 console.log("La taille de l'image est bonne.");
             }
 
-            return imgTotalSize > this.maxSize;
+            return imgTotalSize > maxSize;
         } catch (error) {
             console.error("Erreur lors de la lecture des dimensions de l'image :", error);
             return false;
@@ -87,8 +88,9 @@ class ImageProcessor {
     }
 
 
-    browseDirectory(directoryPath) {
+    browseDirectory() {
 
+        const directoryPath = "assets";
 
         // Filter images files
         const imageExtensions = [".jpg", ".jpeg", ".png", ".gif"];
@@ -152,4 +154,9 @@ class ImageProcessor {
 
 }
 
+const directoryPath = "assets";
+const imageProcessor = new ImageProcessor();
+imageProcessor.browseDirectory(directoryPath);
 module.exports = ImageProcessor;
+
+

@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "file": {
+      "name": "forest-night.jpg",
+      "widthPx": 5472,
+      "heightPx": 3648,
+      "weightKo": 962.32,
+      "tooLarge": true,
+      "carbonEmissionKgCo2": 0.094
+    }
+  },
+  {
+    "file": {
+      "name": "hp.jpeg",
+      "widthPx": 750,
+      "heightPx": 1334,
+      "weightKo": 196.16,
+      "tooLarge": false,
+      "carbonEmissionKgCo2": 0.019
+    }
+  },
+  {
+    "file": {
+      "name": "logo.jpg",
+      "widthPx": 792,
+      "heightPx": 792,
+      "weightKo": 44.01,
+      "tooLarge": false,
+      "carbonEmissionKgCo2": 0.004
+    }
+  },
+  {
+    "file": {
+      "name": "tlou.png",
+      "widthPx": 1920,
+      "heightPx": 1080,
+      "weightKo": 1937.07,
+      "tooLarge": true,
+      "carbonEmissionKgCo2": 0.189
+    }
+  }
+]
