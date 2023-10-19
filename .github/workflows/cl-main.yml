@@ -11,6 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: "Init repository"
+        uses: actions/checkout@v3
+
+      - name: "Install node"
+        uses: actions/setup-node@v3
+        with:
+          node-version: "19"
+
+      - name: "Install dependencies"
+        run: npm install
+
+      - name: "Run tests"
+        run: npm run test
+
+      - name: "Run tests coverage"
+        run: npm run jest --coverage
+
+      - name: "Run eslint"
+        run: npm run lint
+
       - name: "Publish to NPM"
         uses: JS-DevTools/npm-publish@v2
         with:
