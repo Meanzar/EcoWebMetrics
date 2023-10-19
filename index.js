@@ -33,3 +33,5 @@ const samplePolicies = {
 const calculator = new CarbonEmissions();
 const results = calculator.calculate(sampleData, samplePolicies);
 console.log(results);
+
+
