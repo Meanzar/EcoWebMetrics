@@ -5,15 +5,28 @@ const sizeOf = require("image-size");
 class ImageProcessor {
     constructor(maxSize) {
         this.maxSize = maxSize;
+        this.clearJsonData("data.json");
     }
 
-    calculImgSize(filePath) {
+    // Fonction pour effacer les anciennes données
+    clearJsonData(filePath) {
+        fs.writeFileSync(filePath, "[]", "utf8", (err) => {
+            if (err) {
+                console.error("Erreur lors de la suppression des données du fichier JSON :", err);
+            } else {
+                console.log("Les anciennes données ont été supprimées du fichier JSON.");
+            }
+        });
+    }
+
+    calculimgTotalSize(filePath) {
         const dimensions = sizeOf(filePath);
-        const imageSize = dimensions.width * dimensions.height;
-        console.log("Largeur : " + dimensions.width + " Hauteur : " + dimensions.height);
+        const imgTotalSize = dimensions.width * dimensions.height;
+        console.log("Largeur : " + dimensions.width + "px , Hauteur : " + dimensions.height + "px");
 
-        return imageSize;
+        return [dimensions.width, dimensions.height, imgTotalSize];
     }
+
 
     calculImgWeight(filePath) {
         const stats = fs.statSync(filePath);
@@ -24,6 +37,7 @@ class ImageProcessor {
 
         return fileSizeInKb;
     }
+
 
     calculImgCarbonEmission(imgWeight) {
         const kwhEnergyPerKb = 0.2 / 1024; // Energy consumption per Ko (in kWh)
@@ -36,20 +50,46 @@ class ImageProcessor {
         return totalCarbonEmission;
     }
 
-    isImageSizeTooLarge(filePath) {
-        try {
-            const imgSize = this.calculImgSize(filePath);
-            const imgWeight = this.calculImgWeight(filePath);
-            this.calculImgCarbonEmission(imgWeight);
 
-            return imgSize > this.maxSize;
+    isImgLarge(filePath) {
+        try {
+            const [imgTotalSize] = this.calculimgTotalSize(filePath);
+            if (imgTotalSize > this.maxSize) {
+                console.log("La taille de l'image est trop grande.");
+            } else {
+                console.log("La taille de l'image est bonne.");
+            }
+
+            return imgTotalSize > this.maxSize;
         } catch (error) {
             console.error("Erreur lors de la lecture des dimensions de l'image :", error);
             return false;
         }
     }
 
+
+    // Save data in JSON
+    saveDataToJson(filePath, newData) {
+        let jsonData = [];
+        try {
+            const existingData = fs.readFileSync(filePath);
+            jsonData = JSON.parse(existingData);
+        } catch (error) {
+            console.error("Erreur lors de la lecture du fichier JSON :", error);
+        }
+
+        // Append new data
+        jsonData.push(newData);
+
+        // Write updated data back to the file
+        const updatedJsonData = JSON.stringify(jsonData, null, 2);
+        fs.writeFileSync(filePath, updatedJsonData, "utf8");
+    }
+
+
     browseDirectory(directoryPath) {
+
+
         // Filter images files
         const imageExtensions = [".jpg", ".jpeg", ".png", ".gif"];
 
@@ -68,23 +108,49 @@ class ImageProcessor {
             // Filtrer les fichiers d'images
             const imageFiles = files.filter(isImageFile);
 
+
+
             // For each image file check size
             if (imageFiles.length === 0) {
                 console.log("Aucune image trouvée dans le dossier.");
             } else {
                 imageFiles.forEach((file) => {
                     console.log("\nImage : ", file);
-                    if (this.isImageSizeTooLarge(path.join(directoryPath, file))) {
-                        console.log("La taille de l'image est trop grande.");
-                    } else {
-                        console.log("La taille de l'image est bonne.");
-                    }
+
+
+                    const filePath = path.join(directoryPath, file);
+
+                    // Save json
+                    const [width, height, imgTotalSize] = this.calculimgTotalSize(filePath);
+                    const imgWeight = this.calculImgWeight(filePath);
+                    const imgLarge = this.isImgLarge(filePath);
+                    const imgCarbonEmission = this.calculImgCarbonEmission(imgWeight);
+
+                    const jsonData = {
+                        file: {
+                            id: file,
+                            name: file,
+                            widthPx: width,
+                            heightPx: height,
+                            weightKo: imgWeight,
+                            tooLarge: imgLarge,
+                            carbonEmissionKgCo2: imgCarbonEmission
+                        }
+                    };
+
+                    this.saveDataToJson("data.json", jsonData);
+                    // END Save json
+
+
+
                 });
             }
 
 
         });
     }
+
+
 }
 
 module.exports = ImageProcessor;

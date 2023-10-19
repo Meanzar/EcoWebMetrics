@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images Size</title>
+</head>
+
+<body>
+    <pre id="data-container"></pre>
+    <script>
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const dataContainer = document.getElementById('data-container');
+                dataContainer.textContent = JSON.stringify(data, null, 2); // Affichage des données dans la balise pre
+            })
+            .catch(error => console.error('Une erreur s\'est produite lors de la récupération des données :', error));
+    </script>
+</body>
+
+</html>
