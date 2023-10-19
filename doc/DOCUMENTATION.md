@@ -8,9 +8,9 @@ EcoWebMetrics is a JavaScript library that provides developers with feedback on 
 2. [Installation](#installation)
 3. [Usage](#usage)
 5. [Interface](#interface)
-6. [Contributing](#contributing)
-7. [License](#license)
-8. [Roadmap](#roadmap)
+6. [Roadmap](#roadmap)
+7. [Contributing](#contributing)
+8. [License](#license)
 
 ## Features
 
