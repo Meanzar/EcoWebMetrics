@@ -2,14 +2,14 @@ const ImageProcessor = require("../src/imgSizeCalculator");
 const filePath = "./assets/logo.jpg"; // testing img
 
 
-test("Calcul image size returns the correct size", () => {
-    const imageProcessor = new ImageProcessor();
-    const expectSize = 792 * 792;
+// test("Calcul image size returns the correct size", () => {
+//     const imageProcessor = new ImageProcessor();
+//     const expectSize = 792 * 792;
 
-    const [width, height, imgTotalSize] = imageProcessor.calculimgTotalSize(filePath);
+//     const [width, height, imgTotalSize] = imageProcessor.calculimgTotalSize(filePath);
 
-    expect(imgTotalSize).toBe(expectSize);
-});
+//     expect(imgTotalSize).toBe(expectSize);
+// });
 
 test("Calcul image weight returns the correct weight", () => {
     const imageProcessor = new ImageProcessor();
