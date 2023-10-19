@@ -128,7 +128,6 @@ class ImageProcessor {
 
                     const jsonData = {
                         file: {
-                            id: file,
                             name: file,
                             widthPx: width,
                             heightPx: height,

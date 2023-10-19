@@ -1,7 +1,6 @@
 [
   {
     "file": {
-      "id": "forest-night.jpg",
       "name": "forest-night.jpg",
       "widthPx": 5472,
       "heightPx": 3648,
@@ -12,7 +11,6 @@
   },
   {
     "file": {
-      "id": "hp.jpeg",
       "name": "hp.jpeg",
       "widthPx": 750,
       "heightPx": 1334,
@@ -23,7 +21,6 @@
   },
   {
     "file": {
-      "id": "logo.jpg",
       "name": "logo.jpg",
       "widthPx": 792,
       "heightPx": 792,
@@ -34,7 +31,6 @@
   },
   {
     "file": {
-      "id": "tlou.png",
       "name": "tlou.png",
       "widthPx": 1920,
       "heightPx": 1080,
