@@ -1,6 +1,6 @@
 # EcoWebMetrics
 
-EcoWebMetrics is a JavaScript library that provides developers with feedback on their code, helping them write more sustainable and environmentally friendly code. It leverages data collected from unit tests to generate a score and provide insights into the ecological impact of the code.
+EcoWebMetrics is a JavaScript library that provides developers with feedback on their code, helping them write more sustainable and environmentally friendly applications. It leverages data collected from multiple factors to generate a score and provide insights into the ecological impact of the code.
 
 ## Table of Contents
 
