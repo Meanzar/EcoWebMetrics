@@ -1,14 +1,13 @@
-name: Test
+name: Continious Integration Main
 
 on:
   push:
     branches:
-      - develop
-      - staging
+      - main
 
 jobs:
   ci:
-    name: Continuous integration
+    name: Continious Integration Main
     runs-on: ubuntu-latest
 
     steps:
@@ -20,14 +19,10 @@ jobs:
         with:
           node-version: "19"
 
-      - name: "Install dependencies"
-        run: npm install
-
-      - name: "Run tests"
-        run: npm run test
-
-      - name: "Run tests coverage"
-        run: npm run test-coverage
-
-      - name: "Run eslint"
-        run: npm run lint
+      - name: Install dependencies
+        run: npm i
+        
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
