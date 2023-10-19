@@ -1,11 +1,8 @@
-name: CI
+name: Continious Integration
 
 on:
   push:
-    branches:
-      - staging
-
-
+  pull_request:
 
 jobs:
   ci:
@@ -16,7 +13,7 @@ jobs:
       - name: "Init repository"
         uses: actions/checkout@v3
 
-        - name: "Install node"
+      - name: "Install node"
         uses: actions/setup-node@v3
         with:
           node-version: "19"
@@ -29,4 +26,3 @@ jobs:
 
       - name: "Run eslint"
         run: npm run lint
-    
