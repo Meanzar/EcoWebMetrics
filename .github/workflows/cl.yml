@@ -1,9 +1,10 @@
 name: Test
 
 on:
+on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   ci:
